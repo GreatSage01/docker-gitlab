@@ -14,7 +14,18 @@ test:
   url: redis://localhost:6379
 production:
   # Redis (single instance)
-  url: redis://{{REDIS_PASSWORD}}{{REDIS_HOST}}:{{REDIS_PORT}}/{{REDIS_DB_NUMBER}}
+  # url: redis://{{REDIS_PASSWORD}}{{REDIS_HOST}}:{{REDIS_PORT}}/{{REDIS_DB_NUMBER}}
+
+  ##
+  # Redis + Sentinel (for HA)
+  #
+  # Please read instructions carefully before using it as you may lose data:
+  # http://redis.io/topics/sentinel
+  #
+  # You must specify a list of a few sentinels that will handle client connection
+  # please read here for more information: https://docs.gitlab.com/ce/administration/high_availability/redis.html
+
+  url: redis://{{REDIS_PASSWORD}}{{REDIS_SENTINEL_MASTER}}:{{REDIS_PORT}}
   sentinels:
     -
       host: {{REDIS_SENTINEL_1}}
@@ -25,14 +36,7 @@ production:
     -
       host: {{REDIS_SENTINEL_3}}
       port: {{REDIS_SENTINEL_PORT}}
-  ##
-  # Redis + Sentinel (for HA)
-  #
-  # Please read instructions carefully before using it as you may lose data:
-  # http://redis.io/topics/sentinel
-  #
-  # You must specify a list of a few sentinels that will handle client connection
-  # please read here for more information: https://docs.gitlab.com/ce/administration/high_availability/redis.html
+
   ##
   # url: redis://master:6379
   # sentinels:

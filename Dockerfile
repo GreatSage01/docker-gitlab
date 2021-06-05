@@ -1,4 +1,4 @@
-FROM sameersbn/gitlab:13.12.1
+FROM sameersbn/gitlab:13.12.2
 # op-docker.fzzixun.com/op/gitlab-docker-d:v1
 
 ENV GITLAB_CACHE_DIR="/etc/docker-gitlab" \

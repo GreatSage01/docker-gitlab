@@ -1,5 +1,6 @@
 FROM ubuntu:focal-20210416
 
+# op-docker.fzzixun.com/op/gitlab-docker:v1
 ARG VERSION=13.12.2
 
 ENV GITLAB_VERSION=${VERSION} \

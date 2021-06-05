@@ -25,7 +25,7 @@ production:
   # You must specify a list of a few sentinels that will handle client connection
   # please read here for more information: https://docs.gitlab.com/ce/administration/high_availability/redis.html
 
-  url: redis://{{REDIS_PASSWORD}}{{REDIS_SENTINEL_MASTER}}:{{REDIS_PORT}}
+  url: redis://{{REDIS_PASSWORD}}{{REDIS_SENTINEL_MASTER}}:{{REDIS_PORT}}/{{REDIS_DB_NUMBER}}
   sentinels:
     -
       host: {{REDIS_SENTINEL_1}}
